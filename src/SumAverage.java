@@ -40,11 +40,14 @@ public class SumAverage {
    * @return average of integers
    */
   public static double average(int lowerBound, int upperBound) {
-    double result;
-    while (true){
-      result = (lowerBound + upperBound) / 2d;
-      break;}
-    return result;
+    double result = 0, stepper = lowerBound, counter = 0;
+
+    while (stepper <= upperBound){
+        result += stepper;
+        stepper++;
+        counter++;
+    }
+    return result / counter;
   }
 
   /**
@@ -54,13 +57,13 @@ public class SumAverage {
    * @return average of integers
    */
   public static double average(int[] numbers) {
-    Double result;
-    int counter;
+    Double result = 0d;
+    int counter = 0;
     do {
-      result = (numbers[0] + numbers [numbers.length -1]) / 2d;
-      counter = 1;
-    } while (counter != 1);
+      result += numbers[counter];
+      counter++;
+    } while (counter < numbers.length);
 
-    return result;
+    return result / numbers.length;
   }
 }
